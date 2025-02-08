@@ -1,5 +1,7 @@
 package com.example.UserMicroService.pojo;
 
+
+
 public class Rating {
 
     private String ratingId;

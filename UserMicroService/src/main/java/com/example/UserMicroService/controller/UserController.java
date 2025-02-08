@@ -25,13 +25,15 @@ public class UserController {
         return userService.findAllUsers();
     }
 
-    @GetMapping("{id}")
-    public Map<String, Object> findById(@PathVariable String id) {
-        Optional<User> user = userService.findUser(id);
+    @GetMapping("{userId}")
+    public User findById(@PathVariable String userId) {
+
+        Optional<User> user = userService.findUser(userId);
+
         if (user.isPresent()) {
-            return Map.of("message", "User found", "data", user.get());
+            return user.get();
         } else {
-            return Map.of("message", "User not found", "data", null);
+            return null;
         }
     }
 }

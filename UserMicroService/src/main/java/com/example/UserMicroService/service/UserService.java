@@ -30,12 +30,14 @@ public class UserService {
         return userDao.findAll();
     }
 
-    public Optional<User> findUser(String id) {
+    public Optional<User> findUser(String userId) {
         //fetch user from user_db
-        Optional<User> user = userDao.findById(id);
-        Rating rating = restTemplate.getForObject("http://localhost:8082/rating/" + id, Rating.class);
-        user.get().setRating(rating);
+        Optional<User> user = userDao.findById(userId);
+
         if (user.isPresent()) {
+            // calling another service i.e. Rating service
+            Rating rating = restTemplate.getForObject("http://RATING-MICROSERVICE/rating/" + userId, Rating.class);
+            user.get().setRating(rating);
             return user;
         } else {
             return null;
