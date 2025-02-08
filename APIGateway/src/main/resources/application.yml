@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: API-Gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: USER-MICROSERVICE
+          uri: lb://USER-MICROSERVICE
+          predicates:
+            - Path=/user/**
+
+        - id: RATING-MICROSERVICE
+          uri: lb://RATING-MICROSERVICE
+          predicates:
+            - Path=/rating/**
+
+
+server:
+  port: 9090
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
