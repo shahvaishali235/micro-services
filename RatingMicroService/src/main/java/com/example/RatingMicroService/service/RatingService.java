@@ -32,6 +32,6 @@ public class RatingService {
     }
 
     public Optional<Rating> findByUserId(String userId) {
-        return ratingDao.findByUser_id(userId);
+        return ratingDao.findByUserId(userId);
     }
 }

@@ -8,5 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface RatingDao extends JpaRepository<Rating, String> {
-    Optional<Rating> findByUser_id(String userId);
+
+    Optional<Rating> findByUserId(String userId);
 }

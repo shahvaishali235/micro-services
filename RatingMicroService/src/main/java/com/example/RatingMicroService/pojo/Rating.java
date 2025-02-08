@@ -10,20 +10,29 @@ import org.springframework.stereotype.Component;
 
 public class Rating {
 
-    public String getRating_id() {
-        return rating_id;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String ratingId;
+    private String userId;
+    private int rating;
+    private String feedback;
+
+    public String getRatingId() {
+        return ratingId;
     }
 
-    public void setRating_id(String rating_id) {
-        this.rating_id = rating_id;
+    public void setRatingId(String ratingId) {
+        this.ratingId = ratingId;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getRating() {
@@ -42,15 +51,8 @@ public class Rating {
         this.feedback = feedback;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String rating_id;
-    private String user_id;
-    private int rating;
-    private String feedback;
-
     @Override
     public String toString() {
-        return rating_id + "\t" + user_id + "\t" + rating + "\t" + feedback;
+        return ratingId + "\t" + userId + "\t" + rating + "\t" + feedback;
     }
 }
