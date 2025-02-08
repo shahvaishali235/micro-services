@@ -8,7 +8,7 @@ spring:
         - id: USER-MICROSERVICE
           uri: lb://USER-MICROSERVICE
           predicates:
-            - Path=/user/**
+            - Path=/user/**, /manager/**
 
         - id: RATING-MICROSERVICE
           uri: lb://RATING-MICROSERVICE
