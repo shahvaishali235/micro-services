@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 
 public class Rating {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String ratingId;
@@ -53,6 +51,11 @@ public class Rating {
 
     @Override
     public String toString() {
-        return ratingId + "\t" + userId + "\t" + rating + "\t" + feedback;
+        return "Rating{" +
+                "ratingId='" + ratingId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", rating=" + rating +
+                ", feedback='" + feedback + '\'' +
+                '}';
     }
 }

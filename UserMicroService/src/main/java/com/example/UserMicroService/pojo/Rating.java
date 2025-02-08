@@ -1,32 +1,26 @@
 package com.example.UserMicroService.pojo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
-import org.springframework.stereotype.Component;
-
-@Component
 public class Rating {
 
-    private String rating_id;
-    private String user_id;
+    private String ratingId;
+    private String userId;
     private int rating;
     private String feedback;
 
-    public String getRating_id() {
-        return rating_id;
+    public String getRatingId() {
+        return ratingId;
     }
 
-    public void setRating_id(String rating_id) {
-        this.rating_id = rating_id;
+    public void setRatingId(String ratingId) {
+        this.ratingId = ratingId;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getRating() {
@@ -48,11 +42,6 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "Rating{" +
-                "rating_id='" + rating_id + '\'' +
-                ", user_id='" + user_id + '\'' +
-                ", rating=" + rating +
-                ", feedback='" + feedback + '\'' +
-                '}';
+        return "Rating{" + "ratingId='" + ratingId + '\'' + ", userId='" + userId + '\'' + ", rating=" + rating + ", feedback='" + feedback + '\'' + '}';
     }
 }

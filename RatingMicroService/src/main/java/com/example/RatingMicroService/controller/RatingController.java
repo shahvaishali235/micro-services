@@ -27,12 +27,14 @@ public class RatingController {
     }
 
     @GetMapping("/{userId}")
-    public Map<String, Object> findById(@PathVariable String userId) {
+    public Rating findById(@PathVariable String userId) {
         Optional<Rating> rating = ratingService.findByUserId(userId);
+
         if (rating.isPresent()) {
-            return Map.of("message", "User found", "data", rating.get());
+            return rating.get();
         } else {
-            return Map.of("message", "User not found", "data", null);
+            return null;
         }
+
     }
 }
